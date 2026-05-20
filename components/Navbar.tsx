@@ -4,27 +4,52 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const links = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Packages", href: "#packages" },
-  { label: "Apps", href: "#apps" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "#about", id: "about" },
+  { label: "Skills", href: "#skills", id: "skills" },
+  { label: "Packages", href: "#packages", id: "packages" },
+  { label: "Apps", href: "#apps", id: "apps" },
+  { label: "Contact", href: "#contact", id: "contact" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dark, setDark] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [activeId, setActiveId] = useState("");
 
   useEffect(() => {
     const saved = localStorage.getItem("theme");
     const prefersDark = matchMedia("(prefers-color-scheme: dark)").matches;
-    const isDark = saved ? saved === "dark" : prefersDark;
-    setDark(isDark);
+    setDark(saved ? saved === "dark" : prefersDark);
 
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
+    const onScroll = () => {
+      const scrollY = window.scrollY;
+      setScrolled(scrollY > 20);
+
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(docHeight > 0 ? (scrollY / docHeight) * 100 : 0);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const sectionIds = links.map((l) => l.id);
+    const observers: IntersectionObserver[] = [];
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActiveId(id); },
+        { threshold: 0.35 }
+      );
+      obs.observe(el);
+      observers.push(obs);
+    });
+
+    return () => observers.forEach((o) => o.disconnect());
   }, []);
 
   const toggleTheme = () => {
@@ -44,7 +69,12 @@ export default function Navbar() {
         <ul className="nav-links">
           {links.map((l) => (
             <li key={l.label}>
-              <a href={l.href}>{l.label}</a>
+              <a
+                href={l.href}
+                className={activeId === l.id ? "nav-active" : ""}
+              >
+                {l.label}
+              </a>
             </li>
           ))}
         </ul>
@@ -53,6 +83,17 @@ export default function Navbar() {
           <button className="nav-theme" onClick={toggleTheme} aria-label="Toggle theme">
             {dark ? "☀" : "☾"}
           </button>
+          <a href="#contact" className="nav-hire">
+            Let&apos;s Talk →
+          </a>
+          <a
+            href="https://drive.google.com/file/d/1UX5XPnQTsxgHAKVDzSBviEfp3oOFPpfm/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-hire"
+          >
+            Resume ⬇
+          </a>
           <a href="mailto:sanjaysharmajw@gmail.com" className="nav-hire">
             Hire Me →
           </a>
@@ -66,6 +107,9 @@ export default function Navbar() {
             <span />
           </button>
         </div>
+
+        {/* Scroll progress bar */}
+        <div className="nav-progress" style={{ width: `${progress}%` }} />
       </nav>
 
       <AnimatePresence>

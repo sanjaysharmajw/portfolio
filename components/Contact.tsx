@@ -6,17 +6,19 @@ const EMAIL = "sanjaysharmajw@gmail.com";
 
 const contactItems = [
   { tag: "Email", val: EMAIL, action: "Copy", href: null },
-  { tag: "LinkedIn", val: "linkedin.com/in/sanjaysharma", action: "Open →", href: "https://linkedin.com/in/sanjaysharma" },
-  { tag: "GitHub", val: "github.com/sanjaysharma", action: "Open →", href: "https://github.com/sanjaysharma" },
+  { tag: "LinkedIn", val: "linkedin.com/in/sanjaydeveloper", action: "Open →", href: "https://www.linkedin.com/in/sanjaydeveloper/" },
+  { tag: "GitHub", val: "github.com/sanjaysharmajw", action: "Open →", href: "https://github.com/sanjaysharmajw" },
   { tag: "pub.dev", val: "sanjaysharma.info", action: "Open →", href: "https://pub.dev/publishers/sanjaysharma.info/packages" },
   { tag: "WhatsApp", val: "Message directly", action: "Chat →", href: "https://wa.me/91XXXXXXXXXX" },
 ];
 
 export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
   const [toast, setToast] = useState("");
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -38,13 +40,35 @@ export default function Contact() {
     setTimeout(() => setToast(""), 2500);
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSending(true);
-    await new Promise((r) => setTimeout(r, 1400));
-    setSending(false);
-    setSent(true);
-    showToast("Message sent — I'll reply soon!");
+    setError("");
+
+    const fd = new FormData(e.currentTarget);
+    const body = {
+      first: fd.get("first"),
+      last: fd.get("last"),
+      email: fd.get("email"),
+      subject: fd.get("subject"),
+      message: fd.get("message"),
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+
+      if (!res.ok) throw new Error("send_failed");
+      setSent(true);
+      showToast("Message sent — I'll reply soon!");
+    } catch {
+      setError("Something went wrong. Please email me directly.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -76,12 +100,7 @@ export default function Contact() {
                     <span className="contact-item-val">{item.val}</span>
                   </div>
                   {item.href ? (
-                    <a
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="contact-item-action"
-                    >
+                    <a href={item.href} target="_blank" rel="noopener noreferrer" className="contact-item-action">
                       {item.action}
                     </a>
                   ) : (
@@ -116,7 +135,7 @@ export default function Contact() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit}>
+              <form ref={formRef} onSubmit={handleSubmit}>
                 <div className="form-row">
                   <div className="form-group">
                     <label>First Name</label>
@@ -139,6 +158,9 @@ export default function Contact() {
                   <label>Message</label>
                   <textarea name="message" placeholder="Tell me about your project…" required />
                 </div>
+                {error && (
+                  <p style={{ fontSize: ".8rem", color: "#e74c3c", marginTop: "8px" }}>{error}</p>
+                )}
                 <button type="submit" className="form-submit" disabled={sending}>
                   {sending ? "Sending…" : "Send Message →"}
                 </button>

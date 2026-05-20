@@ -32,17 +32,17 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href="https://github.com/sanjaysharma" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/sanjaysharmajw" target="_blank" rel="noopener noreferrer">
                 GitHub →
               </a>
             </li>
             <li>
-              <a href="https://linkedin.com/in/sanjaysharma" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/sanjaydeveloper/" target="_blank" rel="noopener noreferrer">
                 LinkedIn →
               </a>
             </li>
             <li>
-              <a href="https://youtube.com/@sanjaysharma" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.youtube.com/@CodeWithIDE" target="_blank" rel="noopener noreferrer">
                 YouTube →
               </a>
             </li>
@@ -53,8 +53,8 @@ export default function Footer() {
       <div className="footer-bottom">
         <p className="footer-copy">© {new Date().getFullYear()} Sanjay Sharma · Crafted with precision</p>
         <div className="footer-socials">
-          <a href="https://github.com/sanjaysharma" target="_blank" rel="noopener noreferrer" className="footer-social">GitHub</a>
-          <a href="https://linkedin.com/in/sanjaysharma" target="_blank" rel="noopener noreferrer" className="footer-social">LinkedIn</a>
+          <a href="https://github.com/sanjaysharmajw" target="_blank" rel="noopener noreferrer" className="footer-social">GitHub</a>
+          <a href="https://www.linkedin.com/in/sanjaydeveloper/" target="_blank" rel="noopener noreferrer" className="footer-social">LinkedIn</a>
           <a href="https://pub.dev/publishers/sanjaysharma.info/packages" target="_blank" rel="noopener noreferrer" className="footer-social">pub.dev</a>
         </div>
       </div>

@@ -81,21 +81,7 @@ export default function Hero() {
           <strong>Flutter · Android · Node.js · Spring Boot</strong>
         </p>
 
-        <div className="hero-btns">
-          <a href="#contact" className="btn-solid">
-            Let&apos;s Talk →
-          </a>
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-ghost"
-          >
-            Resume ↗
-          </a>
-        </div>
-
-        <div className="hero-scroll">SCROLL TO EXPLORE</div>
+<div className="hero-scroll">SCROLL TO EXPLORE</div>
       </div>
     </section>
   );
