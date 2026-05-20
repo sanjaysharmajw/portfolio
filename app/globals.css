@@ -32,7 +32,7 @@
 
 /* ── Reset ─────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   background: var(--bg);
@@ -746,6 +746,7 @@ footer { padding: 50px 6% 32px; position: relative; z-index: 1; }
   body { cursor: auto; }
 }
 @media (max-width: 600px) {
+  html { font-size: 17px; }
   .achieve-grid { grid-template-columns: 1fr 1fr; }
   .achieve-item { grid-column: span 1 !important; }
   .achieve-item:nth-child(odd) { border-right: 1px solid var(--ln); }
