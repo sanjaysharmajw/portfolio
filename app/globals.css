@@ -284,7 +284,7 @@ button { border: none; background: none; font-family: var(--fb); color: inherit;
   color: var(--t3); letter-spacing: .1em; text-transform: uppercase;
   margin-bottom: 52px;
 }
-.section-label::after { content: ''; flex: 1; height: 1px; background: var(--ln); }
+.section-label::after { content: none; }
 .section-label .num { color: var(--lime); font-weight: 500; }
 
 /* ── Hero ──────────────────────────────────────────────────── */
