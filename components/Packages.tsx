@@ -31,24 +31,26 @@ export default function Packages() {
 
   useEffect(() => {
     const load = async () => {
-      const results = await Promise.all(
-        staticPkgs.map(async (pkg) => {
-          let ver = "–", likes: string | number = "–";
-          try {
-            const [d, m] = await Promise.all([
-              fetch(`https://pub.dev/api/packages/${pkg.n}`).then((r) => r.ok ? r.json() : null),
-              fetch(`https://pub.dev/api/packages/${pkg.n}/metrics`).then((r) => r.ok ? r.json() : null),
-            ]);
-            if (d) ver = d.latest?.version || "–";
-            if (m) likes = m.score?.likeCount ?? "–";
-          } catch {
-            // use defaults
-          }
-          return { ...pkg, ver, likes };
-        })
-      );
-      setPkgs(results);
-      setLoading(false);
+      try {
+        const res = await fetch("/api/packages");
+        if (!res.ok) throw new Error("failed");
+        const data = await res.json();
+        setPkgs(
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          data.map((p: any) => ({
+            n: p.name,
+            i: p.icon,
+            d: p.description,
+            p: p.platforms,
+            ver: p.version ?? "–",
+            likes: p.likes ?? "–",
+          }))
+        );
+      } catch {
+        setPkgs(staticPkgs.map((p) => ({ ...p, ver: "–", likes: "–" })));
+      } finally {
+        setLoading(false);
+      }
     };
     load();
   }, []);
