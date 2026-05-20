@@ -78,15 +78,16 @@ export default function Hero() {
       </h1>
 
       <div className="hero-bottom">
-        <p className="hero-tagline">
-          Building <strong>scalable mobile apps</strong>, AI-powered solutions &amp;
-          <br />
-          beautiful digital experiences.
-          <br />
-          <strong>Flutter · Android · Node.js · Spring Boot</strong>
-        </p>
-
-        <div className="hero-avail hero-avail-mobile">Available for Projects</div>
+        <div className="hero-bottom-left">
+          <p className="hero-tagline">
+            Building <strong>scalable mobile apps</strong>, AI-powered solutions &amp;
+            <br />
+            beautiful digital experiences.
+            <br />
+            <strong>Flutter · Android · Node.js · Spring Boot</strong>
+          </p>
+          <div className="hero-avail hero-avail-mobile">Available for Projects</div>
+        </div>
         <div className="hero-scroll">SCROLL TO EXPLORE</div>
       </div>
     </section>

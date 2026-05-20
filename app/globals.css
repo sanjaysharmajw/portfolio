@@ -302,7 +302,7 @@ button { border: none; background: none; font-family: var(--fb); color: inherit;
   font-family: var(--fm); font-size: .7rem;
   color: var(--t3); letter-spacing: .08em; padding-top: 4px; line-height: 1.8;
 }
-.hero-avail-mobile { display: inline-flex; }
+.hero-avail-mobile { display: inline-flex; align-self: flex-start; }
 .hero-top .hero-avail { display: none; }
 .hero-avail {
   display: inline-flex; align-items: center; gap: 7px;
@@ -347,6 +347,7 @@ button { border: none; background: none; font-family: var(--fb); color: inherit;
   display: flex; justify-content: space-between; align-items: flex-end;
   flex-wrap: wrap; gap: 20px;
 }
+.hero-bottom-left { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
 .hero-tagline {
   max-width: 480px;
   font-size: .95rem; color: var(--t2); font-weight: 300; line-height: 1.8;
