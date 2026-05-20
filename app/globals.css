@@ -759,6 +759,7 @@ footer { padding: 50px 6% 32px; position: relative; z-index: 1; }
   .form-row .form-group:last-child { padding-left: 0; }
   .hero-top { flex-direction: column; gap: 14px; }
   .section { padding-top: 28px; padding-bottom: 28px; }
+  #about { padding-top: 56px; }
   #hero { padding-top: 28px; padding-bottom: 20px; }
   #marquee { padding-top: 20px; padding-bottom: 20px; }
 }
