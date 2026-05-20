@@ -86,7 +86,8 @@ export default function Hero() {
           <strong>Flutter · Android · Node.js · Spring Boot</strong>
         </p>
 
-<div className="hero-scroll">SCROLL TO EXPLORE</div>
+        <div className="hero-avail hero-avail-mobile">Available for Projects</div>
+        <div className="hero-scroll">SCROLL TO EXPLORE</div>
       </div>
     </section>
   );
