@@ -55,9 +55,9 @@ export default function Hero() {
 
       <h1 className="hero-h1">
         Sanjay<br />
-        <span className="hero-dim">
-          Sharma
-          <span style={{ color: "var(--t1)" }}> — {role}</span>
+        <span className="hero-dim">Sharma —</span>
+        <span className="hero-role">
+          {role}
           <span
             style={{
               display: "inline-block",
