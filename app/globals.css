@@ -760,7 +760,7 @@ footer { padding: 50px 6% 32px; position: relative; z-index: 1; }
   .hero-top { flex-direction: column; gap: 14px; }
   .hero-scroll { margin-top: 30px; }
   .section { padding-top: 28px; padding-bottom: 28px; }
-  #about { padding-top: 120px; }
+  #about { padding-top: 160px; }
   #hero { padding-top: 28px; padding-bottom: 20px; }
   #marquee { padding-top: 20px; padding-bottom: 20px; }
 }
