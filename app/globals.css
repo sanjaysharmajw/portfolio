@@ -88,21 +88,21 @@ button { border: none; background: none; font-family: var(--fb); color: inherit;
 /* ── Loader ────────────────────────────────────────────────── */
 .ld {
   position: fixed; inset: 0;
-  background: var(--ink);
+  background: #0C0C0B;
   z-index: 9999;
   display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 14px;
 }
 .ld-t {
   font-family: var(--fd);
   font-size: 1rem; font-weight: 700;
-  color: var(--lime);
+  color: #BCFF47;
   letter-spacing: .08em;
 }
 .ld-bar { width: 140px; height: 1px; background: rgba(255,255,255,.1); }
 .ld-fill {
   height: 1px;
   width: 0;
-  background: var(--lime);
+  background: #BCFF47;
   animation: ldFill 1.6s var(--e) forwards;
 }
 @keyframes ldFill { to { width: 100%; } }
