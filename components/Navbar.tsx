@@ -17,6 +17,15 @@ export default function Navbar() {
   const [dark, setDark] = useState(false);
   const [progress, setProgress] = useState(0);
   const [activeId, setActiveId] = useState("");
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 961px)");
+    setIsDesktop(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
 
   useEffect(() => {
     const saved = localStorage.getItem("theme");
@@ -83,20 +92,24 @@ export default function Navbar() {
           <button className="nav-theme" onClick={toggleTheme} aria-label="Toggle theme">
             {dark ? "☀" : "☾"}
           </button>
-          <a href="#contact" className="nav-hire">
-            Let&apos;s Talk →
-          </a>
-          <a
-            href="https://drive.google.com/file/d/1UX5XPnQTsxgHAKVDzSBviEfp3oOFPpfm/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="nav-hire"
-          >
-            Resume ⬇
-          </a>
-          <a href="mailto:sanjaysharmajw@gmail.com" className="nav-hire">
-            Hire Me →
-          </a>
+          {isDesktop && (
+            <>
+              <a href="#contact" className="nav-hire">
+                Let&apos;s Talk →
+              </a>
+              <a
+                href="https://drive.google.com/file/d/1UX5XPnQTsxgHAKVDzSBviEfp3oOFPpfm/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="nav-hire"
+              >
+                Resume ⬇
+              </a>
+              <a href="mailto:sanjaysharmajw@gmail.com" className="nav-hire">
+                Hire Me →
+              </a>
+            </>
+          )}
           <button
             className="nav-hamburger"
             onClick={() => setMobileOpen(true)}
