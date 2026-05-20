@@ -302,7 +302,8 @@ button { border: none; background: none; font-family: var(--fb); color: inherit;
   font-family: var(--fm); font-size: .7rem;
   color: var(--t3); letter-spacing: .08em; padding-top: 4px; line-height: 1.8;
 }
-.hero-avail-mobile { display: none; }
+.hero-avail-mobile { display: inline-flex; }
+.hero-top .hero-avail { display: none; }
 .hero-avail {
   display: inline-flex; align-items: center; gap: 7px;
   background: var(--lime); color: #000;
@@ -761,8 +762,6 @@ footer { padding: 50px 6% 32px; position: relative; z-index: 1; }
   .form-row .form-group:last-child { padding-left: 0; }
   .hero-top { flex-direction: column; gap: 14px; }
   .hero-scroll { white-space: nowrap; letter-spacing: .03em; }
-  .hero-top .hero-avail { display: none; }
-  .hero-avail-mobile { display: inline-flex; }
   .hero-role-wrap { font-size: 0.5em; }
   .hero-role-text { letter-spacing: .04em; }
   .section { padding-top: 28px; padding-bottom: 28px; }
