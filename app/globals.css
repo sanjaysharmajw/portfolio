@@ -753,7 +753,8 @@ footer { padding: 50px 6% 32px; position: relative; z-index: 1; }
   .achieve-item { padding: 20px 16px; }
   .apps-grid { grid-template-columns: 1fr; }
   .app-mockup { display: none; }
-  .footer-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid > div:first-child { grid-column: span 2; }
   .form-row { grid-template-columns: 1fr; }
   .form-row .form-group:first-child { border-right: none; padding-right: 0; }
   .form-row .form-group:last-child { padding-left: 0; }
