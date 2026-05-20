@@ -758,8 +758,8 @@ footer { padding: 50px 6% 32px; position: relative; z-index: 1; }
   .form-row .form-group:first-child { border-right: none; padding-right: 0; }
   .form-row .form-group:last-child { padding-left: 0; }
   .hero-top { flex-direction: column; gap: 14px; }
-  .section { padding-top: 48px; padding-bottom: 48px; }
-  #hero { padding-top: 48px; padding-bottom: 36px; }
-  #marquee { padding-top: 32px; padding-bottom: 32px; }
+  .section { padding-top: 28px; padding-bottom: 28px; }
+  #hero { padding-top: 28px; padding-bottom: 20px; }
+  #marquee { padding-top: 20px; padding-bottom: 20px; }
 }
 
