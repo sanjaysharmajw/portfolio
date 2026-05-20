@@ -176,9 +176,6 @@ export default function Navbar() {
                 >✕</button>
               </div>
 
-              {/* Divider */}
-              <div style={{ height: 1, background: "rgba(255,255,255,0.08)" }} />
-
               {/* Links */}
               <nav style={{ display: "flex", flexDirection: "column", flex: 1, padding: "8px 0" }}>
                 {links.map((l, i) => (
