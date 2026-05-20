@@ -758,7 +758,7 @@ footer { padding: 50px 6% 32px; position: relative; z-index: 1; }
   .form-row .form-group:first-child { border-right: none; padding-right: 0; }
   .form-row .form-group:last-child { padding-left: 0; }
   .hero-top { flex-direction: column; gap: 14px; }
-  .hero-scroll { margin-top: 38px; }
+  .hero-scroll { margin-top: 56px; }
   .section { padding-top: 28px; padding-bottom: 28px; }
   #about { padding-top: 130px; }
   #hero { padding-top: 28px; padding-bottom: 20px; }
