@@ -1,6 +1,10 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { FaMobileAlt, FaStar, FaBriefcase, FaHospital } from "react-icons/fa";
+import { SiFlutter } from "react-icons/si";
+import { BiBrain } from "react-icons/bi";
+import type { IconType } from "react-icons";
 
 function animateCount(el: HTMLSpanElement, target: number) {
   const duration = 1500;
@@ -14,13 +18,13 @@ function animateCount(el: HTMLSpanElement, target: number) {
   requestAnimationFrame(step);
 }
 
-const items = [
-  { icon: "📱", num: 30, sup: "+", label: "Apps Published", desc: "Production apps on Play Store & App Store" },
-  { icon: "📦", num: 10, sup: "", label: "Flutter Packages", desc: "Open-source tools on pub.dev" },
-  { icon: "⭐", num: 50, sup: "K", label: "Downloads", desc: "Packages downloaded worldwide" },
-  { icon: "🤖", num: 5, sup: "+", label: "AI Integrations", desc: "Face detection & ML-powered features" },
-  { icon: "🏥", num: 3, sup: "+", label: "Healthcare Apps", desc: "Telemedicine & patient platforms" },
-  { icon: "📆", num: 7, sup: "+", label: "Years Experience", desc: "Growing with the mobile ecosystem" },
+const items: { icon: IconType; color: string; num: number; sup: string; label: string; desc: string }[] = [
+  { icon: FaMobileAlt, color: "#3DDC84", num: 30, sup: "+", label: "Apps Published",   desc: "Production apps on Play Store & App Store" },
+  { icon: SiFlutter,  color: "#54C5F8", num: 10, sup: "",  label: "Flutter Packages", desc: "Open-source tools on pub.dev" },
+  { icon: FaStar,     color: "#FFCA28", num: 50, sup: "K", label: "Downloads",        desc: "Packages downloaded worldwide" },
+  { icon: BiBrain,    color: "#4285F4", num: 5,  sup: "+", label: "AI Integrations",  desc: "Face detection & ML-powered features" },
+  { icon: FaHospital, color: "#FF6F6F", num: 3,  sup: "+", label: "Healthcare Apps",  desc: "Telemedicine & patient platforms" },
+  { icon: FaBriefcase,color: "#A78BFA", num: 7,  sup: "+", label: "Years Experience", desc: "Growing with the mobile ecosystem" },
 ];
 
 export default function Experience() {
@@ -51,12 +55,14 @@ export default function Experience() {
       </div>
 
       <div className="achieve-grid">
-        {items.map((item, i) => (
+        {items.map((item, i) => {
+          const Icon = item.icon;
+          return (
           <div
             key={item.label}
             className={`achieve-item rv${i % 3 === 1 ? " d1" : i % 3 === 2 ? " d2" : ""}`}
           >
-            <span className="achieve-icon">{item.icon}</span>
+            <span className="achieve-icon"><Icon size={22} color={item.color} /></span>
             <div className="achieve-number">
               <span data-count={item.num}>0</span>
               {item.sup && <sup>{item.sup}</sup>}
@@ -64,7 +70,8 @@ export default function Experience() {
             <div className="achieve-label">{item.label}</div>
             <div className="achieve-desc">{item.desc}</div>
           </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

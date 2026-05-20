@@ -15,12 +15,14 @@ import Footer from "@/components/Footer";
 
 const LoadingScreen = dynamic(() => import("@/components/LoadingScreen"), { ssr: false });
 const CursorGlow = dynamic(() => import("@/components/CursorGlow"), { ssr: false });
+const SplashCursor = dynamic(() => import("@/components/SplashCursor"), { ssr: false });
 
 export default function Home() {
   return (
     <>
       <LoadingScreen />
       <CursorGlow />
+      <SplashCursor />
       <Navbar />
       <main>
         <Hero />
