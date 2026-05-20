@@ -744,7 +744,9 @@ footer { padding: 50px 6% 32px; position: relative; z-index: 1; }
   .pkg-right { display: none; }
   /* Remove section borders on mobile — prevents double-divider between sections */
   .section, #hero, #marquee { border-bottom: none; }
-  /* Hide mouse cursor glow on touch devices */
+}
+/* Hide custom cursor on all touch devices (mobile + tablet + iPad) */
+@media (pointer: coarse) {
   .cur, .cur-r { display: none; }
   body { cursor: auto; }
 }
