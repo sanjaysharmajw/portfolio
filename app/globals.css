@@ -739,6 +739,8 @@ footer { padding: 50px 6% 32px; position: relative; z-index: 1; }
   .nav-hamburger { display: flex; }
   .pkg-row { grid-template-columns: 32px 1fr; }
   .pkg-right { display: none; }
+  /* Remove section borders on mobile — prevents double-divider between sections */
+  .section, #hero, #marquee { border-bottom: none; }
   /* Hide mouse cursor glow on touch devices */
   .cur, .cur-r { display: none; }
   body { cursor: auto; }
