@@ -56,19 +56,24 @@ export default function Hero() {
       <h1 className="hero-h1">
         Sanjay<br />
         <span className="hero-dim">Sharma —</span>
-        <span className="hero-role">
-          {role}
-          <span
-            style={{
-              display: "inline-block",
-              width: "2px",
-              height: "0.75em",
-              background: "var(--lime)",
-              marginLeft: "2px",
-              verticalAlign: "text-bottom",
-              animation: "dotPulse 1s infinite",
-            }}
-          />
+        <span className="hero-role-wrap">
+          {/* Invisible ghost of longest text — permanently reserves height/width */}
+          <span className="hero-role-ghost" aria-hidden>Android Developer</span>
+          {/* Actual typed text overlaid on top */}
+          <span className="hero-role-text">
+            {role}
+            <span
+              style={{
+                display: "inline-block",
+                width: "2px",
+                height: "0.75em",
+                background: "var(--lime)",
+                marginLeft: "2px",
+                verticalAlign: "text-bottom",
+                animation: "dotPulse 1s infinite",
+              }}
+            />
+          </span>
         </span>
       </h1>
 

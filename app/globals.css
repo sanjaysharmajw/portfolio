@@ -323,13 +323,22 @@ button { border: none; background: none; font-family: var(--fb); color: inherit;
   margin-bottom: 36px;
 }
 .hero-dim { color: var(--t3); }
-.hero-role {
+.hero-role-wrap {
   display: block;
-  color: var(--t1);
-  min-height: 0.92em;
+  position: relative;
+}
+.hero-role-ghost {
+  display: block;
+  visibility: hidden;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  pointer-events: none;
+  user-select: none;
+}
+.hero-role-text {
+  position: absolute;
+  top: 0; left: 0;
+  color: var(--t1);
+  white-space: nowrap;
 }
 
 .hero-bottom {
