@@ -758,10 +758,10 @@ footer { padding: 50px 6% 32px; position: relative; z-index: 1; }
   .form-row .form-group:first-child { border-right: none; padding-right: 0; }
   .form-row .form-group:last-child { padding-left: 0; }
   .hero-top { flex-direction: column; gap: 14px; }
-  .hero-scroll { margin-top: 30px; }
+  /* .hero-scroll { margin-top: 5px; } */
   .section { padding-top: 28px; padding-bottom: 28px; }
-  #about { padding-top: 200px; }
-  #hero { padding-top: 28px; padding-bottom: 20px; }
+  #about { padding-top: 50px; }
+  #hero { padding-top: 72px; padding-bottom: 20px; }
   #marquee { padding-top: 20px; padding-bottom: 20px; }
 }
 
