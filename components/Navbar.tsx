@@ -20,7 +20,7 @@ export default function Navbar() {
   const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
-    const mq = window.matchMedia("(min-width: 961px)");
+    const mq = window.matchMedia("(min-width: 600px)");
     setIsDesktop(mq.matches);
     const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
     mq.addEventListener("change", handler);
